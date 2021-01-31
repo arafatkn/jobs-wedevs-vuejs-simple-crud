@@ -58,6 +58,7 @@
 <script>
 import Pagination from '~/components/Pagination.vue'
 export default {
+  middleware: 'user',
   components: { Pagination },
   layout: 'user',
 

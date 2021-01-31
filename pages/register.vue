@@ -1,7 +1,7 @@
 <template>
-  <div class="container right-panel-active" id="container">
-    <div class="form-container sign-up-container">
-      <div class="form">
+  <div class="auth-container right-panel-active">
+    <div class="auth-form-container sign-up-container">
+      <div class="auth-form">
         <h1>Create Account</h1>
         <span>or use your email for registration</span>
         <input type="text" v-model="user.name" placeholder="Name" />
@@ -75,7 +75,10 @@ export default {
         })
         .catch(error => {
           if(error.response.status==422) {
-            this.$toast.error( this.$func.errorsAsText(error.response.data.errors) );
+            Object.values(error.response.data.errors).forEach(error => {
+              error.forEach(text => this.$toast.error(text))
+            })
+            // /this.$toast.error( this.$func.errorsAsText(error.response.data.errors) );
           } else {
             this.$toast.error(error.response.data.message)
           }

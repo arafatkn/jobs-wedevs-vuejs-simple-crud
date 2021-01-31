@@ -7,7 +7,7 @@
     <div class="container2">
       <Nuxt />
     </div>
-    <div class="overlay" v-if="loading_state">
+    <div class="loverlay" v-if="loading_state">
       <div class="overlay__inner">
         <div class="overlay__content"><span class="spinner"></span></div>
       </div>

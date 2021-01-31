@@ -115,7 +115,9 @@ export default {
                   else if(error.response.status == 401)
                     this.$router.push('/login')
                   else if(error.response.status==422)
-                    this.$toast.error( this.$func.errorsAsText(error.response.data.errors) );
+                    Object.values(error.response.data.errors).forEach(error => {
+                      error.forEach(text => this.$toast.error(text))
+                    })
                   else
                     this.$toast.error(error.response.data.message)
                 })
