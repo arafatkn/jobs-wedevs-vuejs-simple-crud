@@ -55,7 +55,6 @@ export default {
       common: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        'X-API-KEY': '6tLnGzE6LRwztp3xSwoQnuzf',
       },
       delete: {},
       get: {},
